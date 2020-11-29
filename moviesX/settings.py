@@ -24,16 +24,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'y*z+_3_#i82c*5kad#4_o6pb6i*0o%e@2@oh$o7b$5+smnxd95'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-'''
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 ALLOWED_HOSTS = ['moviesX.herokuapp.com']
+
 '''
-
 ALLOWED_HOSTS = []
-
+'''
 
 # Application definition
 
@@ -80,7 +79,7 @@ WSGI_APPLICATION = 'moviesX.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -89,6 +88,7 @@ DATABASES = {
 }
 
 '''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -98,7 +98,7 @@ DATABASES = {
         'HOST': 'localhost'
     }
 }
-'''
+
 
 
 # Password validation

@@ -19,6 +19,7 @@ html{
 body{
     font-family: sans-serif;
     background: var(--light-dark);
+    overflow-x: hidden;
 }
 
 *{
@@ -409,6 +410,13 @@ body{
     cursor: pointer;
 }
 
+
+
+.genres > div:nth-child(odd) .movie-container .genre-container{
+    background-color: var(--bit-dark);
+    
+}
+
 .genre-container .row a{
     color: var(--light);
     text-align: center;
@@ -420,6 +428,6 @@ body{
 
 
 .genre-container:hover{
-    opacity: 0.8;
+    opacity: 0.7;
     text-decoration: none;
 }
