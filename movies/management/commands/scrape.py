@@ -105,10 +105,10 @@ class Command(BaseCommand):
                     imdb_link = None
                     pass
                 
-                req = requests.get(imdb_link).text
+                
 
                 try:
-                    
+                    req = requests.get(imdb_link).text
                     souper = BeautifulSoup(req, "lxml")
                     poster = souper.find('div', class_="poster")
                     a_tag = poster.find('a')
