@@ -11,7 +11,7 @@ from .models import *
 
 def home(request, slug=None):
     genre = None
-    movies = Movie.objects.all().order_by('-year')
+    movies = Movie.objects.all().order_by('-id')
     if slug:
         genre = get_object_or_404(Genre, slug=slug)
         movies = genre.movie_set.all()
