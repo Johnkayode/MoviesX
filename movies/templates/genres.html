@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+
+{% block metatag %}
+<!--Whatsapp-->
+{% load static %}
+<meta name='description' content="Download movies in torrent">
+<meta property='og:title' content="MovieX - All Genres">
+<meta property='og:description' content="Download movies in torrent">
+<meta property='og:type' content="website">
+
+<!--Twitter Card-->
+<meta name='twitter:card' content="summary_large_image">
+<meta name='twitter:site' content='@nerd_thejohn'>
+<meta name='twitter:creator' content="@nerd_thejohn">
+<meta name='twitter:title' content="MovieX - All Genres">
+<meta name='twitter:description' content="Download movies in torrent">
+
+{% endblock %}
+
+
+{% block title %}
+All Genres
+{% endblock %}
+{% block body %}
+<div class='container'>
+    <div class="row">
+
+    </div>
+    
+    <div class='row'>
+        {% for genre in all_genres %}
+            
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+                <div class="movie-container">
+                    
+                    <div class='genre-container'>
+                        <div class="row justify-content-center">
+                            <a href='{{genre.get_absolute_url}}'>
+                                {{genre}}
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        
+        {% endfor %}
+    </div>
+    
+</div>
+{% endblock %}

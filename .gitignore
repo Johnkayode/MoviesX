@@ -1,0 +1,5 @@
+env/
+movies/tasks.py
+movies/scraper.py
+moviesX/celery.py
+db.sqlite3

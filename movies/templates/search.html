@@ -1,0 +1,79 @@
+{% extends 'index.html' %}
+
+{% block metatag %}
+<!--Whatsapp-->
+{% load static %}
+<meta name='description' content="Search results for {{q}}">
+<meta property='og:title' content="MovieX - Search Results">
+<meta property='og:description' content="Search results for {{q}}">
+
+<meta property='og:type' content="website">
+
+<!--Twitter Card-->
+<meta name='twitter:card' content="summary_large_image">
+<meta name='twitter:site' content='@nerd_thejohn'>
+<meta name='twitter:creator' content="@nerd_thejohn">
+<meta name='twitter:title' content="MovieX - Search Results">
+<meta name='twitter:description' content="Search results for {{q}}">
+
+{% endblock %}
+{% block title %}
+Search Results
+{% endblock %}
+
+
+{% block body %}
+<div class='container'>
+    <div class="row">
+        <div class="col-lg-12">
+            <p class='text-muted text center'>Search results for <span class='text-primary'>'{{q}}'</span></p>
+        </div>
+    </div>
+    
+    <div class='row'>
+        {% if movies %}
+            {% for movie in movies %}
+                
+                <div class="col-lg-4 col-md-6 col-sm-12 d-flex">
+                    <div class="movie-container">
+                        <a href='{{movie.get_absolute_url}}'>
+                            <img src='{{movie.image_link}}' class='img-fluid'>
+                        </a>
+                        <h5 class='mt-2 mb-2'>{{movie.title}}</h5>
+                        <p class='text-muted'>{{movie.year}} <span class='float-right'><i class='fas fa-star'></i> {{movie.rating}}</span></p>
+                        <p class='text-muted stars'>
+                            {% for star in movie.star_set.all %}
+                            <span>{{star}}</span><span>, </span>
+                            {% endfor %}
+                        </p>
+                        <p >{{movie.summary}}</p>
+                    </div>
+                </div>
+            
+            {% endfor %}
+        {% else %}
+            <div class="row justify-content-center">
+                <div class='no-result'>
+                    <p class='text-muted text-center'>No results found</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    {% if movies.has_previous or movies.has_next %}
+        <nav class="movies-nav nav nav-justified my-5">
+            {% if movies.has_previous %}
+            <a class="download-btn mr-2" href="?page={{movies.previous_page_number }}"><i class="mr-2 arrow-prev fas fa-long-arrow-alt-left"></i> Prev</a>
+            {% else %}
+            <a class="download-btn disabled mr-2"><i class="mr-2 arrow-prev fas fa-long-arrow-alt-left"></i> Prev</a>
+            {% endif %}
+            
+            {% if movies.has_next %}
+            <a class="download-btn" href="?page={{movies.next_page_number }}">Next <i class="arrow-next ml-2 fas fa-long-arrow-alt-right"></i></a>
+            {% else %}
+            <a class="download-btn disabled">Next <i class="arrow-next ml-2 fas fa-long-arrow-alt-right"></i></a>
+            {% endif %}
+            
+        </nav>
+    {% endif %}
+</div>
+{% endblock %}

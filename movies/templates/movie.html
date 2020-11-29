@@ -1,0 +1,91 @@
+{% extends 'index.html' %}
+
+{% block metatag %}
+<!--Whatsapp-->
+{% load static %}
+<meta name='description' content="{{ movie.summary }}">
+<meta property='og:title' content="{{ movie.title }}">
+<meta property='og:description' content="{{ movie.summary }}">
+<meta property='og:image' content='{{movie.image_link}}'>
+<meta property='og:type' content="website">
+
+<!--Twitter Card-->
+<meta name='twitter:card' content="summary_large_image">
+<meta name='twitter:site' content='@nerd_thejohn'>
+<meta name='twitter:creator' content="@nerd_thejohn">
+<meta name='twitter:title' content="{{movie.title}}">
+<meta name='twitter:description' content="{{movie.summary}}">
+<meta name='twitter:image' content="{{ movie.image_link  }}">
+{% endblock %}
+
+{% block title %}
+{{movie.title}} {{movie.year}}
+{% endblock %}
+
+
+{% block body %}
+<div class='container'>
+    <div class="row">
+
+    </div>
+    
+    <div class='row justify-content-center mb-8'>
+        
+            
+        <div class="col-lg-6 d-flex">
+            <div class="movie-container">
+                <a href='{{movie.get_absolute_url}}'>
+                    <img src='{{movie.image_link}}' class='img-fluid'>
+                    
+                </a>
+                
+                
+            </div>
+        </div>
+        <div class="col-lg-6 d-flex">
+            <div class='movie-container'>
+                <h3 class='mt-2 mb-2'>{{movie.title}}</h3>
+                <p class='text-muted'>{{movie.year}} <span class='float-right'><i class='fas fa-star'></i> {{movie.rating}}</span></p>
+                <p>Director:</p>
+                <p class="text-muted">{{movie.director}}</p>
+                <p>Starring:</p>
+                <p class='text-muted stars'>
+                    {% for star in movie.stars.all %}
+                    <span>{{star.name}}</span><span>, </span>
+                    {% endfor %}
+                </p>
+                <p>Genre:</p>
+                <p class='text-muted stars'>
+                    {% for genre in movie.genres.all %}
+                    <span>{{genre.name}}</span><span>, </span>
+                    {% endfor %}
+                </p>
+                <br>
+                <div class='download-btns'>
+                    <a class='download-btn mr-2' href='{{movie.torrent_720p}}' target="__blank">720p torrent</a>
+                    <a class='download-btn'href='{{movie.torrent_1080p}}' target="__blank">1080p torrent</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="row mt-4 synopsis">
+        <h5 class='mt-8 mb-4 pt-8 mb-4'></h5>
+        <div class="col-lg-12">
+            <div>
+                <p>{{movie.synopsis}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4 screenshots">
+        <h5 class='mt-8 mb-4 pt-8 mb-4'></h5>
+        {% for screenshot_link in movie.screenshot_set.all %}
+            <div class='col-lg-4 col-sm-4 col-md-4'>
+                <img class='img-fluid screenshot' src='{{screenshot_link}}'>
+            </div>
+        {% endfor %}
+    </div>
+    
+</div>
+{% endblock %}
