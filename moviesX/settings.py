@@ -28,7 +28,7 @@ DEBUG = False
 
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['moviesX.herokuapp.com']
+ALLOWED_HOSTS = ['moviesx.herokuapp.com']
 
 '''
 ALLOWED_HOSTS = []
