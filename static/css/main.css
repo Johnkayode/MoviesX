@@ -60,11 +60,12 @@ body{
 }
 
 .sidebar-nav .sidebar .nav-menu .search-family .search{
-    
+    position: relative;
     border-radius: 17px;
     background-color: var(--gray);
     padding: 5px 27px 5px 12px;
-    margin-left: 17px;
+    width: 80%;
+    margin: 0 25px;
     border: none;
     outline: none;
     color: var(--light)
@@ -76,8 +77,9 @@ body{
 }
 
 .sidebar-nav .sidebar .nav-menu .search-family .search-icon{
-    position: relative;
+    position: absolute;
     right: 30px;
+    top: 98px;
     padding-top: 5px 0;
     
 }

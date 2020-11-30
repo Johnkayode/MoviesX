@@ -14,7 +14,7 @@ def home(request, slug=None):
     movies = Movie.objects.all().order_by('-id')
     if slug:
         genre = get_object_or_404(Genre, slug=slug)
-        movies = genre.movie_set.all()
+        movies = genre.movie_set.all().order_by('-id')
         genre = genre.name
     genres = Genre.objects.all()[:5]
     paginator = Paginator(movies, 21)
@@ -31,7 +31,7 @@ def home(request, slug=None):
 
 def search(request):
     genres = Genre.objects.all()[:5]
-    queryset = Movie.objects.all()
+    queryset = Movie.objects.all().order_by('-id')
     stars = Star.objects.all()
     q = request.GET.get('q')
     if q:

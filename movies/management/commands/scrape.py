@@ -20,7 +20,7 @@ class Command(BaseCommand):
 
         url = "https://yts.mx/browse-movies/0/all/all/0/featured/0/all"
         movies = []
-        num_of_pages = 13
+        num_of_pages = 3
         for page in range(1, num_of_pages + 1):
             page = (num_of_pages + 1) - page
             URL = url

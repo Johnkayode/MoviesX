@@ -4,7 +4,7 @@
 <!--Whatsapp-->
 {% load static %}
 <meta name='description' content="{{ movie.summary }}">
-<meta property='og:title' content="{{ movie.title }}">
+<meta property='og:title' content="{{ movie.title }} {{movie.year}}">
 <meta property='og:description' content="{{ movie.summary }}">
 <meta property='og:image' content='{{movie.image_link}}'>
 <meta property='og:type' content="website">
@@ -13,7 +13,7 @@
 <meta name='twitter:card' content="summary_large_image">
 <meta name='twitter:site' content='@nerd_thejohn'>
 <meta name='twitter:creator' content="@nerd_thejohn">
-<meta name='twitter:title' content="{{movie.title}}">
+<meta name='twitter:title' content="{{movie.title}} {{movie.year}}">
 <meta name='twitter:description' content="{{movie.summary}}">
 <meta name='twitter:image' content="{{ movie.image_link  }}">
 {% endblock %}
