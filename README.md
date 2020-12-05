@@ -2,7 +2,7 @@
 
 Django Postgresql Heroku Scheduler BeautifulSoup4
 
-https://www.moviesx.herokuapp.com
+http://www.moviesx.herokuapp.com
 
 Scrapes yts.mx and Imdb sites for movies info 
 and torrent download links.
